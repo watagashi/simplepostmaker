@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>mixi SimplePost : 予定の作成</title>
+    <script type="text/javascript">
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>mixi SimplePost : 予定の作成</h1>
+    </header>
+    <ul>
+        <li>
+            <label for="title">タイトル* (全角100文字以内)</label>
+            <input id="title" type="text" oninput="outUrl()" />
+        </li>
+        <li>
+            <label for="body">内容(任意) (全角10000文字以内)</label>
+            <textarea id="body" name="" rows="10" cols="30" oninput="outUrl()"></textarea>
+        </li>
+        <li>
+            <label for="datetime">日時(任意)</label>
+            <input id="datetime" type="datetime-local" step="900" onchange="outUrl()" />
+        </li>
+        <li>
+            <fieldset onchange="outUrl()">
+                <legend>参加者の募集</legend>
+                <input type="radio" name="recruit" id="recruit-yes" checked />
+                <label for="recruit-yes">募集する</label>
+                <input type="radio" name="recruit" id="recruit-no" />
+                <label for="recruit-no">募集しない</label>
+            </fieldset>
+        </li>
+        <!-- <li>
+            <label for="invite">友人を誘う</label>
+        </li> -->
+    </ul>
+    <hr />
+    <ul>
+        <li>
+            <label for="url" onclick="$('url').select();">URL</label>
+            <input id="url" type="url" size="100" readonly />
+        </li>
+        <li>
+            <label for="tags" onclick="$('tags').select();">HTML tags</label>
+            <input id="tags" type="url" size="100" readonly />
+        </li>
+    </ul>
+    <script type="text/javascript">
+        var endPoint = "http://mixi.jp/simplepost/schedule?";
+        var d = new Date();
+        $("datetime").value = d.getFullYear() + "-"
+            + ("0" + (d.getMonth() + 1)).slice(-2) + "-"
+            + ("0" + d.getDate()).slice(-2) + "T00:00";
+        function outUrl() {
+            var datetime = new Date($("datetime").value);
+            var url = endPoint
+                + "title=" + enc($("title").value)
+                + "&body=" + enc($("body").value)
+                + ($("datetime").value ? ( "&year=" + datetime.getFullYear()
+                        + "&month=" + ( datetime.getMonth() + 1 )
+                        + "&day=" + datetime.getDate()
+                        + "&hour=" + datetime.getHours()
+                        + "&minute=" + datetime.getMinutes()) : "" )
+                + "&recruit=" + ($("recruit-yes").checked ? "1" : "0");
+            $("url").value = url;
+            $("tags").value = '<a href="' + url
+                + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" /></a>';
+        }
+        function enc(s) {
+            return encodeURIComponent(s).replace(/\(/g,"%28").replace(/\)/g,"%29");
+        }
+    </script>
+</body>
+</html>
