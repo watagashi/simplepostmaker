@@ -13,56 +13,62 @@
     <header>
         <h1>mixi SimplePost : 予定の作成</h1>
     </header>
-    <ul>
-        <li>
-            <label for="title">タイトル* (全角100文字以内)</label>
-            <input id="title" type="text" maxlength="100" oninput="outUrl()" />
-        </li>
-        <li>
-            <label for="body">内容(任意) (全角10000文字以内)</label>
-            <textarea id="body" name="" rows="10" cols="30" maxlength="10000" oninput="outUrl()"></textarea>
-        </li>
-        <li>
-            <label for="datetime">日時(任意)</label>
-            <input id="datetime" type="datetime-local" step="900" onchange="outUrl()" />
-        </li>
-        <li>
-            <fieldset onchange="outUrl()">
-                <legend>参加者の募集</legend>
-                <input type="radio" name="recruit" id="recruit-yes" checked />
-                <label for="recruit-yes">募集する</label>
-                <input type="radio" name="recruit" id="recruit-no" />
-                <label for="recruit-no">募集しない</label>
-            </fieldset>
-        </li>
-        <!-- <li>
-            <label for="invite">友人を誘う</label>
-        </li> -->
-    </ul>
+    <section>
+        <ul>
+            <li>
+                <label for="title">タイトル* (全角100文字以内)</label>
+                <input id="title" type="text" maxlength="100" oninput="outUrl()" />
+            </li>
+            <li>
+                <label for="body">内容(任意) (全角10000文字以内)</label>
+                <textarea id="body" name="" rows="10" cols="30" maxlength="10000" oninput="outUrl()"></textarea>
+            </li>
+            <li>
+                <label for="datetime">日時(任意)</label>
+                <input id="datetime" type="datetime-local" step="900" onchange="outUrl()" />
+            </li>
+            <li>
+                <fieldset onchange="outUrl()">
+                    <legend>参加者の募集</legend>
+                    <input type="radio" name="recruit" id="recruit-yes" checked />
+                    <label for="recruit-yes">募集する</label>
+                    <input type="radio" name="recruit" id="recruit-no" />
+                    <label for="recruit-no">募集しない</label>
+                </fieldset>
+            </li>
+            <!-- <li>
+                <label for="invite">友人を誘う</label>
+            </li> -->
+        </ul>
+    </section>
     <hr />
-    <ul>
-        <li>
-            <label for="url" onclick="$('url').select();">URL</label>
-            <input id="url" type="url" size="100" readonly />
-        </li>
-        <li>
-            <label for="tags" onclick="$('tags').select();">HTML tags</label>
-            <input id="tags" type="url" size="100" readonly />
-        </li>
-    </ul>
+    <section>
+        <ul>
+            <li>
+                <label for="url" onclick="$('url').select();">URL</label>
+                <input id="url" type="url" size="100" readonly />
+            </li>
+            <li>
+                <label for="tags" onclick="$('tags').select();">HTML tags</label>
+                <input id="tags" type="url" size="100" readonly />
+            </li>
+        </ul>
+    </section>
     <hr />
-    <ul>
-        <li>
-            <a href="http://developer.mixi.co.jp/connect/mixi_plugin/simplepost/spec_of_simplepost">技術仕様  &lt;&lt;  mixi Developer Center (ミクシィ デベロッパーセンター)</a>
-        </li>
-        <li>
-            <a href="https://bitbucket.org/_wa_/simplepostmaker">_wa_ / simplepostmaker / overview - Bitbucket</a>
-        </li>
-        <li>
-            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="_wa_" data-lang="ja">Tweet</a>
-            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-        </li>
-    </ul>
+    <section>
+        <ul>
+            <li>
+                <a href="http://developer.mixi.co.jp/connect/mixi_plugin/simplepost/spec_of_simplepost">技術仕様  &lt;&lt;  mixi Developer Center (ミクシィ デベロッパーセンター)</a>
+            </li>
+            <li>
+                <a href="https://bitbucket.org/_wa_/simplepostmaker">_wa_ / simplepostmaker / overview - Bitbucket</a>
+            </li>
+            <li>
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="_wa_" data-lang="ja">Tweet</a>
+                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            </li>
+        </ul>
+    </section>
     <script type="text/javascript">
         var endPoint = "http://mixi.jp/simplepost/schedule?";
         var d = new Date();
