@@ -50,7 +50,11 @@
             </li>
             <li>
                 <label for="tags" onclick="$('tags').select();">HTML tags</label>
-                <input id="tags" type="url" size="100" readonly />
+                <input id="tags" type="text" size="100" readonly />
+            </li>
+            <li>
+                <label for="atwikiimage">@wiki</label>
+                <input id="atwikiimage" type="text" size="100" readonly />
             </li>
         </ul>
     </section>
@@ -85,6 +89,7 @@
             $("url").value = url;
             $("tags").value = '<a href="' + url
                 + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" /></' + 'a>';
+            $("atwikiimage").value = "&image(http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png," + url + ")"
         }
         function enc(s) {
             return encodeURIComponent(s).replace(/\(/g,"%28").replace(/\)/g,"%29");
