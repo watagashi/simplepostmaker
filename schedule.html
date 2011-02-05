@@ -75,6 +75,7 @@
     </section>
     <script type="text/javascript">
         var endPoint = "http://mixi.jp/simplepost/schedule?";
+        var imgsrc = "http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png";
         var d = new Date();
         $("datetime").value = d.getFullYear() + "-"
             + ("0" + (d.getMonth() + 1)).slice(-2) + "-"
@@ -92,10 +93,10 @@
                 + "&recruit=" + ($("recruit-yes").checked ? "1" : "0");
             $("url").value = url;
             $("xhtml").value = '<a href="' + url
-                + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" /></' + 'a>';
+                + '"><img src="' + imgsrc + '" /></' + 'a>';
             $("htmlt").value = '<a href="' + url
-                + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" width="77" heigh="18"></' + 'a>';
-            $("atwikiimage").value = "&image(http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png," + url + ")"
+                + '"><img src="' + imgsrc + '" width="77" heigh="18"></' + 'a>';
+            $("atwikiimage").value = "&image(" + imgsrc + "," + url + ")"
         }
         function enc(s) {
             return encodeURIComponent(s).replace(/\(/g,"%28").replace(/\)/g,"%29");
