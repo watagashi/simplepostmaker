@@ -49,8 +49,12 @@
                 <input id="url" type="url" size="100" readonly />
             </li>
             <li>
-                <label for="tags" onclick="$('tags').select();">HTML tags</label>
-                <input id="tags" type="text" size="100" readonly />
+                <label for="xhtml" onclick="$('xhtml').select();">XHTML 1.0 Strict</label>
+                <input id="xhtml" type="text" size="100" readonly />
+            </li>
+            <li>
+                <label for="htmlt" onclick="$('htmlt').select();">HTML 4.01 Transitional</label>
+                <input id="htmlt" type="text" size="100" readonly />
             </li>
             <li>
                 <label for="atwikiimage">@wiki</label>
@@ -87,8 +91,10 @@
                         + "&minute=" + datetime.getMinutes()) : "" )
                 + "&recruit=" + ($("recruit-yes").checked ? "1" : "0");
             $("url").value = url;
-            $("tags").value = '<a href="' + url
+            $("xhtml").value = '<a href="' + url
                 + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" /></' + 'a>';
+            $("htmlt").value = '<a href="' + url
+                + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" width="77" heigh="18"></' + 'a>';
             $("atwikiimage").value = "&image(http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png," + url + ")"
         }
         function enc(s) {
