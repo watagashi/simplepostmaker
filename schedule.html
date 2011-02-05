@@ -84,7 +84,7 @@
                 + "&recruit=" + ($("recruit-yes").checked ? "1" : "0");
             $("url").value = url;
             $("tags").value = '<a href="' + url
-                + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" /></a>';
+                + '"><img src="http://img.mixi.jp/img/basic/mixicheck_entry/bt_schedule_1.png" /></' + 'a>';
         }
         function enc(s) {
             return encodeURIComponent(s).replace(/\(/g,"%28").replace(/\)/g,"%29");
