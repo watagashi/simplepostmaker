@@ -92,10 +92,10 @@
                         + "&minute=" + datetime.getMinutes()) : "" )
                 + "&recruit=" + ($("recruit-yes").checked ? "1" : "0");
             $("url").value = url;
-            $("xhtml").value = '<a href="' + url
+            $("xhtml").value = '<a href="' + url.replace(/&/g, "&amp;")
                 + '"><img src="' + imgsrc + '" /></' + 'a>';
-            $("htmlt").value = '<a href="' + url
-                + '"><img src="' + imgsrc + '" width="77" heigh="18"></' + 'a>';
+            $("htmlt").value = '<a href="' + url.replace(/&/g, "&amp;")
+                + '"><img src="' + imgsrc + '" width="77" height="18"></' + 'a>';
             $("atwikiimage").value = "&image(" + imgsrc + "," + url + ")"
         }
         function enc(s) {
