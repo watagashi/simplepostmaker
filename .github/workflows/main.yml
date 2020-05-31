@@ -1,0 +1,13 @@
+name: CI
+
+on: [push]
+
+jobs:
+  tidy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install HTML Tidy
+      run: sudo apt-get install tidy
+    - name: Run tidy
+      run: tidy -qe *.html
